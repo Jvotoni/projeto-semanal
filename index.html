@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>lista de tarefas </title>
+</head>
+<body>
+    <div>
+    <h1>lista de tarefas</h1>
+    <ul>
+    </ul>
+    <input>
+    <button onclick="add()">adicionar</button>
+    <button onclick="removelast()">remover</button>
+    </div>
+    <script>
+       function add() {
+      const ul = document.querySelector("ul");
+      const input = document.querySelector("input");
+      const tarefa = input.value.trim();
+
+      if (tarefa !== "") {
+        const li = document.createElement("li");
+        li.innerText = tarefa;
+        ul.appendChild(li);
+        input.value = "";
+      }
+    }
+
+    function removelast() {
+      const ul = document.querySelector("ul");
+      const last = ul.lastElementChild; 
+      if (last) {
+        last.remove();
+      }
+    }
+    </script>
+</body>
+</html>
